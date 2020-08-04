@@ -90,7 +90,7 @@ public class EnemyController : MonoBehaviour {
 		body.velocity = new Vector2 (clampedSpeed, 0f);
 
 		if (canShoot) {
-			Instantiate (EnemyMissile);
+			Instantiate (EnemyMissile, transform.position + new Vector3 (1f, -2f, 4f), new Quaternion());
 			canShoot = false;
 			Invoke ("rechargeShot", shotDelay);
 		}

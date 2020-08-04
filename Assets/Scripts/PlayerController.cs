@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
 		body.velocity = new Vector2 (clampedSpeed, 0f);
 
 		if (canShoot && (Input.GetKey (KeyCode.Return) || Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.W))) {
-			Instantiate (PlayerMissile);
+			Instantiate (PlayerMissile, transform.position + new Vector3 (1f, 2f, 4f), new Quaternion());
 			canShoot = false;
 			Invoke ("rechargeShot", shotDelay);
 		}
