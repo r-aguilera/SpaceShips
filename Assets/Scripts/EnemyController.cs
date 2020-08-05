@@ -140,8 +140,6 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void changeAnimation(){
-		Debug.Log (invincibilityTranspStep);
-
 		anim.SetFloat ("h", body.velocity.x/maxSpeed);
 		anim.SetInteger ("lives", lives);
 		if (isInvincible) {
