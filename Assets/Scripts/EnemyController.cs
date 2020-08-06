@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour {
 	private Rigidbody2D body;
 	private Animator anim;
 	private SpriteRenderer sprite;
+	private KillsUI UI;
 	public GameObject EnemyMissile;
 
 	public float acel = 75f;
@@ -33,6 +34,7 @@ public class EnemyController : MonoBehaviour {
 		body = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator>();
 		sprite = GetComponent<SpriteRenderer> ();
+		UI = FindObjectOfType<KillsUI> ();
 		float xPos = Random.Range(-9.5f, 7.5f);
 		transform.position = new Vector3 (xPos, 9f, -5f);
 		changeAnimation ();
@@ -55,6 +57,7 @@ public class EnemyController : MonoBehaviour {
 			canMove = false;
 			canShoot = false;
 			isDead = true;
+			++ UI.kills;
 			Invoke ("enemySpawn", deathAnimLenght + spawnDelay);
 		}
 

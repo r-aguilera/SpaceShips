@@ -22,9 +22,9 @@ public class LifesUI : MonoBehaviour {
 	}
 
 	void changeAnimation () {
-		int livesCount = player.lives; Debug.Log (livesCount);
-		life [0].SetBool("active", (livesCount > 0));
-		life [1].SetBool("active", (livesCount > 1));
-		life [2].SetBool("active", (livesCount > 2));
+		int livesCount = player.lives;
+		for(int i = 0; i < 3; ++i) {
+			life [i].SetBool("active", (livesCount > i));	
+		}
 	}
 }
